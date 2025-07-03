@@ -6,7 +6,7 @@ export default function Header(){
         <View style = {styles.container}>
             <Image 
             style={styles.img}
-            source={require('../assets/images/1.jpeg')}
+            source={require('../../assets/images/1.jpeg')}
             
              />
 
@@ -16,7 +16,7 @@ export default function Header(){
 
              <Image 
             style={styles.img}
-            source={require('../assets/images/2.jpeg')}
+            source={require('../../assets/images/2.jpeg')}
             
              />
         </View>
