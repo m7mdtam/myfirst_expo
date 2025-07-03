@@ -1,17 +1,16 @@
-import axios from 'axios';
+import { ArticleType } from '@/src/types/ArticleType';
+import { get } from '@/src/utils/helpers/apiService';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Image, Text, View } from 'react-native';
-import { ArticleType } from '../MainNews/types';
 import style from './style';
-
 export default function TopNews() {
   const [articles, setArticles] = useState<ArticleType[]>([]);
 
   function getTopNews() {
-    const url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=7f2f26fdae944aa3967653a82df978bb';
+    const url = '/everything?q=football';
 
-    axios
-      .get(url)
+    
+      get(url)
       .then((res) => {
         const filteredArticles = res.data?.articles?.filter(
           (article: ArticleType) => article?.urlToImage != null

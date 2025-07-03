@@ -1,9 +1,9 @@
 //7f2f26fdae944aa3967653a82df978bb
-import axios from 'axios';
+import { ArticleType } from '@/src/types/ArticleType';
+import { get } from '@/src/utils/helpers/apiService';
 import React, { useEffect, useState } from 'react';
 import { FlatList, ImageBackground, Text, View } from 'react-native';
 import styles from './styles';
-import { ArticleType } from './types';
 const news=[
     {
         id:1,
@@ -36,9 +36,9 @@ useEffect(()=>(
 
     function getTopNews(){
         const url=
-        'https://newsapi.org/v2/top-headlines?country=us&apiKey=7f2f26fdae944aa3967653a82df978bb';
+        '/everything?q=palestine';
 
-        axios.get(url).then((res: { data: any; })=>{
+        get(url).then((res: { data: any; })=>{
             console.log(res.data);
             const articles= res.data?.articles?.filter(
                 (                article: ArticleType)=> article?.urlToImage != null,
